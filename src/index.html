@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PVR - Remote Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A remote control for my PVR">
+
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+
+    <!-- <link rel="manifest" href="manifest.json"> -->
+
+    <!-- <meta name="theme-color" content="#3f51b5"> -->
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PVR-Remote">
+    
+  </head>
+  <body>
+    <div id="newSocket" style="display: none;">
+      <input id="newIPAddress" type="text" placeholder="Enter IP of PVR" />
+      <button id="newIP">Go</button>
+    </div>
+    <div id="remote" style="display: none;">
+      <p>Connected</p>
+      <button data-button="1">1</button>
+      <button data-button="2">2</button>
+      <button data-button="3">3</button>
+      <button data-button="4">4</button>
+      <button data-button="5">5</button>
+    </div>
+    <script src="socket.io.js"></script>
+    <script src="bundle.js"></script>
+  </body>
+</html>
