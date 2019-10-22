@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "start": "npm run build && serve dist"
+    "prestart": "npm run build",
+    "start": "serve dist",
+    "predeploy": "npm run build",
+    "deploy": "rsync -az --force --delete --progress -e 'ssh' ./dist/ rw251.com:~/public_html/remote --exclude=/.ssh --exclude=/.logs --exclude=/.cagefs --exclude=/.cl.selector --exclude=/.bash_history --chmod=Fu=rwx,Fog=rwx"
   },
   "keywords": [],
   "author": "",
@@ -14,9 +17,6 @@
     "rollup": "^1.25.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.1.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "serve": "^11.2.0"
   },
   "dependencies": {
