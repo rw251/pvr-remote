@@ -1,6 +1,7 @@
 const port = 8812;
-const address = '192.168.1.11';
+const address = 'localhost';
 let socket = new WebSocket(`ws://${address}:${port}`);
+let status = document.getElementById('status');
 
 const onOpen = () => {
 	
@@ -15,8 +16,9 @@ const onOpen = () => {
 	};
 };
 
-const onError = () => {
+const onError = (err, x, y) => {
   socket.close();
+  status.innerText = 'error occurred';
   document.getElementById('newSocket').style.display = 'block';
   document.getElementById('newIP').onclick = tryNewIP;
 };
